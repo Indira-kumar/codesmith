@@ -1,9 +1,11 @@
 import { toolsList } from "../coding-agent/tools/all";
+import { ToolFunctionMap } from "../coding-agent/types";
 
-type ToolFunction = (args: Record<string, unknown>) => Promise<string>;
-type ToolFunctionMap = Record<string, ToolFunction>;
-
-async function runAgentLoop(messages, provider, toolsMap: ToolFunctionMap) {
+export async function runAgentLoop(
+  messages,
+  provider,
+  toolsMap: ToolFunctionMap,
+) {
   while (true) {
     let reasoning = "";
     let content = "";
