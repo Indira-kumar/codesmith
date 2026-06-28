@@ -18,7 +18,3 @@ export const toolsList = [
     },
   },
 ];
-
-export const toolsMap = {
-  get_weather: get_weather,
-};
