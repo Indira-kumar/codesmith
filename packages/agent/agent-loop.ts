@@ -39,7 +39,7 @@ async function runAgentLoop(messages, provider, toolsMap: ToolFunctionMap) {
           ? [...toolCalls.values()].map((tc) => ({
               id: tc.id,
               type: "function",
-              function: { name: tc.name, arguements: tc.args },
+              function: { name: tc.name, arguments: tc.args },
             }))
           : undefined,
     });

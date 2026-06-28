@@ -12,7 +12,7 @@ export class OllamaProvider {
     this.model = model;
   }
   async *stream(messages, tools) {
-    const response = this.client.chat.completions.create({
+    const response = await this.client.chat.completions.create({
       model: this.model,
       messages,
       tools,
