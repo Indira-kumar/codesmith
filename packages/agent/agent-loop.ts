@@ -1,5 +1,5 @@
-import { toolsList } from "../coding-agent/tools/all";
-import { ToolFunctionMap } from "../coding-agent/types";
+import { toolsList } from "../coding-agent/tools/all.ts";
+import { type ToolFunctionMap } from "../coding-agent/types.ts";
 
 export async function runAgentLoop(
   messages,

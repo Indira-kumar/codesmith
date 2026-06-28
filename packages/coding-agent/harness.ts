@@ -1,7 +1,7 @@
-import { OllamaProvider } from "../ai/ollama-provider";
-import { get_weather } from "./tools/weather";
-import { ToolFunctionMap, ToolFunction } from "./types";
-import { runAgentLoop } from "../agent/agent-loop";
+import { OllamaProvider } from "../ai/ollama-provider.ts";
+import { get_weather } from "./tools/weather.ts";
+import { type ToolFunctionMap } from "./types.ts";
+import { runAgentLoop } from "../agent/agent-loop.ts";
 
 const SYSTEM_PROMPT =
   "You are a helpful AI assistant, you will use the tool at your disposal, and help the user with their queries";
