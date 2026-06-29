@@ -1,13 +1,19 @@
 # codesmith
 CLI based coding agent, harness
 
-# What I will do next if I get more time
-## Must
-- [ ] Add read, write, bash tools
+## What I will do next if I get more time
+### Must
+- [x] Add read, write, bash tools
 - [ ] Add CLI based input/output
 - [ ] Make the provider own the e2e stream collection and processing
 - [ ] Make AgentLoop agnostic to provider
+- [ ] Add Anthropic provider and test with Anthropic models
+- [ ] Add compaction when the user reaches the 80% of context window
 
-## Good to have
-- [ ] propagate reasoning as well and show to user
+### Good to have
+- [ ] Propagate reasoning as well and show to user
 - [ ] TUI for better UX
+- [ ] Add permissions to tool uses
+- [ ] Add `grep` and related coding tools
+- [ ] Add test cases for all the functions
+- [ ] Add persistence/session management for user
