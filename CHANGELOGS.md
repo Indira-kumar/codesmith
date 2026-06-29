@@ -1,4 +1,8 @@
 # Changelog
+## 2026-06-29
+- Added basic bash tool with command validation
+- Added a basic read tool to read 
+- Added a basic tool to write file
 
 ## 2026-06-28
 
