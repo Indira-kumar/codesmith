@@ -2,6 +2,7 @@ import { OllamaProvider } from "../ai/ollama-provider.ts";
 import { get_weather } from "./tools/weather.ts";
 import { bashTool } from "./tools/bash.ts";
 import { read } from "./tools/read.ts";
+import { write } from "./tools/write.ts";
 import { type ToolFunctionMap } from "./types.ts";
 import { runAgentLoop } from "../agent/agent-loop.ts";
 
@@ -32,6 +33,13 @@ export const toolsMap: ToolFunctionMap = {
     }
     return read(path);
   },
+  write: (args: Record<string, unknown>) => {
+    const { path, content } = args;
+    if (typeof path !== "string" || typeof content !== "string") {
+      throw new Error("read requires string path");
+    }
+    return write(path, content);
+  },
 };
 
 const provider = new OllamaProvider("glm-4.7-flash");
@@ -44,7 +52,7 @@ async function main() {
   messages.push({
     role: "user",
     content:
-      "There is a test.txt in the test folder, it has a prompt variable. Respond to that prompt",
+      "There is a test folder, create a helloworld python program there and execute it",
   });
   const result = await runAgentLoop(messages, provider, toolsMap);
   console.log(result);

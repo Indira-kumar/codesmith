@@ -43,4 +43,19 @@ export const toolsList = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "write",
+      description: "To write contents into a file",
+      parameters: {
+        type: "object",
+        properties: {
+          path: { type: "string" },
+          content: { type: "string" },
+        },
+        required: ["path", "content"],
+      },
+    },
+  },
 ];
