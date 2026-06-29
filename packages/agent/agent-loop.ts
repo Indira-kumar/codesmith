@@ -45,6 +45,8 @@ export async function runAgentLoop(
             }))
           : undefined,
     });
+    console.log("content: ", content);
+    console.log("reasoning: ", reasoning);
 
     if (toolCalls.size == 0) return content;
 

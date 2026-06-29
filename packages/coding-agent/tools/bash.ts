@@ -22,8 +22,9 @@ export const bashTool = async (args: string) => {
 };
 
 const isValidCommand = (args: string): boolean => {
+  let tokens: string[];
   try {
-    const tokens = split(args);
+    tokens = split(args);
   } catch {
     return false;
   }

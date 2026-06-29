@@ -29,4 +29,18 @@ export const toolsList = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "read",
+      description: "To read contents of a file",
+      parameters: {
+        type: "object",
+        properties: {
+          path: { type: "string" },
+        },
+        required: ["path"],
+      },
+    },
+  },
 ];
