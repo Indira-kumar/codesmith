@@ -15,4 +15,18 @@ export const toolsList = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "bash",
+      description: "To execute bash commands and acquire results",
+      parameters: {
+        type: "object",
+        properties: {
+          args: { type: "string" },
+        },
+        required: ["args"],
+      },
+    },
+  },
 ];
