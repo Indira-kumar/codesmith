@@ -1,4 +1,8 @@
 # Changelog
+## 2026-06-30
+- Add basic REPL and command line based input using readline-sync library
+![Screenshot of basic REPL](./images/image.png)
+
 ## 2026-06-29
 - Added basic bash tool with command validation
 - Added a basic read tool to read 

@@ -5,6 +5,7 @@ import { read } from "./tools/read.ts";
 import { write } from "./tools/write.ts";
 import { type ToolFunctionMap } from "./types.ts";
 import { runAgentLoop } from "../agent/agent-loop.ts";
+import readlineSync from "readline-sync";
 
 const SYSTEM_PROMPT =
   "You are a helpful AI assistant, you will use the tool at your disposal, and help the user with their queries";
@@ -49,13 +50,16 @@ const messages: Record<string, unknown>[] = [
 ];
 
 async function main() {
-  messages.push({
-    role: "user",
-    content:
-      "There is a test folder, create a helloworld python program there and execute it",
-  });
-  const result = await runAgentLoop(messages, provider, toolsMap);
-  console.log(result);
+  while (true) {
+    const userQuery = readlineSync.question("Enter your prompt here: ");
+    //TODO: santize prompt from user
+    messages.push({
+      role: "user",
+      content: userQuery,
+    });
+    const result = await runAgentLoop(messages, provider, toolsMap);
+    console.log(result);
+  }
 }
 
 main();
