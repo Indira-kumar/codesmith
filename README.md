@@ -5,8 +5,9 @@ CLI based coding agent, harness
 ### Must
 - [x] Add read, write, bash tools
 - [x] Add CLI based input/output
-- [ ] Make the provider own the e2e stream collection and processing
-- [ ] Make AgentLoop agnostic to provider
+- [x] Make the provider own the e2e stream collection and processing
+- [x] Make AgentLoop agnostic to provider
+- [x] Stream responses to output as and when generated for better UX
 - [ ] Add Anthropic provider and test with Anthropic models
 - [ ] Add compaction when the user reaches the 80% of context window
 

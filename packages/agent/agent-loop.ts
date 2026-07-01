@@ -1,17 +1,25 @@
 import { toolsList } from "../coding-agent/tools/all.ts";
 import { type ToolFunctionMap } from "../coding-agent/types.ts";
 
-export async function runAgentLoop(
+export async function* runAgentLoop(
   messages,
   provider,
   toolsMap: ToolFunctionMap,
 ) {
   while (true) {
-    let { content, reasoning, toolCalls } = await provider.stream(
-      messages,
-      toolsList,
-    );
-    if (toolCalls.size == 0) return content;
+    let chunks = provider.stream(messages, toolsList);
+    let reasoning = "";
+    let toolCalls = new Map();
+
+    while (true) {
+      const { value, done } = await chunks.next();
+      if (done) {
+        ({ reasoning, toolCalls } = value);
+        break;
+      }
+      yield value;
+    }
+    if (toolCalls.size == 0) return;
 
     for (const tc of toolCalls.values()) {
       const args = JSON.parse(tc.args);

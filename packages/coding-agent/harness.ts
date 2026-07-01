@@ -51,14 +51,14 @@ const messages: Record<string, unknown>[] = [
 
 async function main() {
   while (true) {
-    const userQuery = readlineSync.question("Enter your prompt here: ");
+    const userQuery = readlineSync.question("\nEnter your prompt here: ");
     //TODO: santize prompt from user
     messages.push({
       role: "user",
       content: userQuery,
     });
-    const result = await runAgentLoop(messages, provider, toolsMap);
-    console.log(result);
+    const result = runAgentLoop(messages, provider, toolsMap);
+    for await (const chunk of result) if (chunk) process.stdout.write(chunk);
   }
 }
 

@@ -14,7 +14,7 @@ export class OllamaProvider {
     });
   }
 
-  async stream(messages: ChatCompletionMessageParam[], tools: any[]) {
+  async *stream(messages: ChatCompletionMessageParam[], tools: any[]) {
     let reasoning = "";
     let content = "";
     const toolCalls = new Map<
@@ -46,6 +46,7 @@ export class OllamaProvider {
           buff.args += tc.function?.arguments ?? "";
         }
       }
+      yield delta.content;
     }
     messages.push({
       role: "assistant",
